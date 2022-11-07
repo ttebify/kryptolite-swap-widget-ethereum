@@ -57,7 +57,7 @@ function ImportToken({ tokens, handleCurrencySelect }: ImportProps) {
               <div className="flex items-center justify-between w-full text-base">
                 <p className="mr-1">{address}</p>
                 <Link to={getBscScanLink(token.address, "address", chainId)} className="font-medium text-blue-600">
-                  (View on BscScan)
+                  (View on Etherscan)
                 </Link>
               </div>
             )}
