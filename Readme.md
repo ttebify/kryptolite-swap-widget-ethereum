@@ -73,3 +73,5 @@ Add network name, show users lists of all available network
 We’ll be adding new features soon.
 
 Enjoy the many benefits of buying and holding Kryptolite (KRL). Don’t forget to purchase KRL as well ;)
+
+"build": "parcel build src/index.js src/styles.css --no-source-maps --public-url https://cdn.jsdelivr.net/gh/KRYPTOLITE/kryptolite-swap-widget@main/widget/ --dist-dir widget"
