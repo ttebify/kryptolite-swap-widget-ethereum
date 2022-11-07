@@ -1,0 +1,30 @@
+{
+  "name": "Kryptolite Default Token List",
+  "timestamp": "2022-01-26T11:45:09Z",
+  "version": {
+    "major": 1,
+    "minor": 0,
+    "patch": 0
+  },
+  "tags": {},
+  "logoURI": "https://kryptolite.rocks/assets/tokens/0xF1288cF18B1FAaA35F40111c3E5d2f827e1E920E.png",
+  "keywords": ["kryptolite", "default"],
+  "tokens": [
+    {
+      "name": "BUSD Token",
+      "symbol": "BUSD",
+      "address": "0x4Fabb145d64652a948d72533023f6E7A623C7C53",
+      "chainId": 1,
+      "decimals": 18,
+      "logoURI": "https://pancakeswap.finance/images/tokens/0x4Fabb145d64652a948d72533023f6E7A623C7C53.png"
+    },
+    {
+      "name": "USD Coin",
+      "symbol": "USDC",
+      "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+      "chainId": 1,
+      "decimals": 6,
+      "logoURI": "https://pancakeswap.finance/images/tokens/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48.png"
+    }
+  ]
+}
