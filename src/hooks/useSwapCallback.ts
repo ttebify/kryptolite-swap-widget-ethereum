@@ -41,7 +41,6 @@ export function useSwapCallback(
   allowedSlippage: number, // in bips
 ): { state: SwapCallbackState; callback: null | (() => Promise<string>); error: string | null } {
   const { account, chainId, library } = useActiveWeb3React();
-  const gasPrice = useGasPrice();
 
   const swapCalls = useSwapCallArguments(trade, allowedSlippage + INITIAL_ALLOWED_SLIPPAGE);
 
@@ -58,6 +57,8 @@ export function useSwapCallback(
     return {
       state: SwapCallbackState.VALID,
       callback: async function onSwap(): Promise<string> {
+        const { gasPrice, maxPriorityFeePerGas } = await library.getFeeData();
+
         const estimatedCalls: SwapCallEstimate[] = await Promise.all(
           swapCalls.map((call) => {
             const {
@@ -112,7 +113,7 @@ export function useSwapCallback(
 
         return contract[methodName](...args, {
           gasLimit: calculateGasMargin(gasEstimate),
-          gasPrice,
+          gasPrice: gasPrice?.add(maxPriorityFeePerGas || BigNumber.from(1))._hex,
           ...(value && !isZero(value) ? { value, from: account } : { from: account }),
         })
           .then((response: any) => {
@@ -143,7 +144,7 @@ export function useSwapCallback(
       },
       error: null,
     };
-  }, [trade, library, account, chainId, swapCalls, gasPrice, addTransaction]);
+  }, [trade, library, account, chainId, swapCalls, addTransaction]);
 }
 
 /**
